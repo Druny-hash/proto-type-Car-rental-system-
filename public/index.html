@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Car Rental System</h1>
+  <h2>Available Cars</h2>
+  <ul id="car-list"></ul>
+  <h2>Rent a Car</h2>
+  <input type="number" id="car-id" placeholder="Car ID">
+  <input type="text" id="user-name" placeholder="Your Name">
+  <button onclick="rentCar()">Rent</button>
+  <h2>Return a Car</h2>
+  <input type="number" id="return-car-id" placeholder="Car ID">
+  <button onclick="returnCar()">Return</button>
+  <h2>Rental History</h2>
+  <ul id="rental-list"></ul>
+  <script src="/js/script.js"></script>
+</body>
+</html>
