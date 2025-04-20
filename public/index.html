@@ -4,21 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Rental System</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .car-list, .rental-history {
+      margin-top: 20px;
+    }
+    .car-item {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .form-group {
+      margin: 10px 0;
+    }
+    .form-group label {
+      margin-right: 10px;
+    }
+    .form-group input {
+      padding: 5px;
+      margin-right: 10px;
+    }
+    .form-group button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .form-group button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .message.success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .message.error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    /* Loading Spinner Styles */
+    .spinner {
+      display: none;
+      margin: 20px auto;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
   <h1>Car Rental System</h1>
-  <h2>Available Cars</h2>
-  <ul id="car-list"></ul>
-  <h2>Rent a Car</h2>
-  <input type="number" id="car-id" placeholder="Car ID">
-  <input type="text" id="user-name" placeholder="Your Name">
-  <button onclick="rentCar()">Rent</button>
-  <h2>Return a Car</h2>
-  <input type="number" id="return-car-id" placeholder="Car ID">
-  <button onclick="returnCar()">Return</button>
-  <h2>Rental History</h2>
-  <ul id="rental-list"></ul>
-  <script src="/js/script.js"></script>
+
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="spinner"></div>
+
+  <!-- Available Cars Section -->
+  <div class="car-list">
+    <h2>Available Cars</h2>
+    <div id="carList"></div>
+  </div>
+
+  <!-- Rent Car Form -->
+  <div class="form-group">
+    <h2>Rent a Car</h2>
+    <label for="carId">Car ID:</label>
+    <input type="number" id="carId" min="1">
+    <label for="userName">Your Name:</label>
+    <input type="text" id="userName">
+    <button id="rentButton">Rent</button>
+    <div id="rentMessage" class="message"></div>
+  </div>
+
+  <!-- Return Car Form -->
+  <div class="form-group">
+    <h2>Return a Car</h2>
+    <label for="returnCarId">Car ID:</label>
+    <input type="number" id="returnCarId" min="1">
+    <button id="returnButton">Return</button>
+    <div id="returnMessage" class="message"></div>
+  </div>
+
+  <!-- Rental History Section -->
+  <div class="rental-history">
+    <h2>Rental History</h2>
+    <div id="rentalHistory"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
